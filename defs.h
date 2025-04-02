@@ -120,6 +120,12 @@ void            userinit(void);
 int             wait(void);
 void            wakeup(void*);
 void            yield(void);
+// --- p1_25s start ---
+int             getnice(int);
+int             setnice(int, int);
+void            ps(int);
+int             getpname(int);
+// --- p1_25s end ---
 
 // swtch.S
 void            swtch(struct context**, struct context*);

@@ -103,6 +103,12 @@ extern int sys_unlink(void);
 extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
+// --- p1_25s start ---
+extern int sys_getnice(void);
+extern int sys_setnice(void);
+extern void sys_ps(void);
+// --- p1_25s end ---
+extern int sys_getpname(void);
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -126,6 +132,12 @@ static int (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
+// --- p1_25s start ---
+[SYS_getnice] sys_getnice,
+[SYS_setnice] sys_setnice,
+[SYS_ps]      sys_ps,
+// --- p1_25s end ---
+[SYS_getpname]  sys_getpname,
 };
 
 void

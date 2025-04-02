@@ -89,3 +89,47 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+// --- p1_25s start ---
+int
+sys_getnice(void)
+{
+  int pid;
+  if(argint(0, &pid) < 0)
+    return -1;
+  return getnice(pid);
+}
+
+int
+sys_setnice(void)
+{
+  int pid;
+  int value;
+  if(argint(0, &pid) < 0)
+    return -1;
+  argint(1, &value);
+  if(value < 0 || value > 39)
+    return -1;
+  return setnice(pid, value);
+}
+
+void
+sys_ps(void)
+{
+  int pid;
+  if(argint(0, &pid) < 0)
+    return -1;
+  ps(pid); 
+}
+
+// --- p1_25s end ---
+
+int
+sys_getpname(void)
+{
+  int pid;
+
+  if(argint(0, &pid) < 0)
+    return -1;
+  return getpname(pid);
+}
