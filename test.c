@@ -21,6 +21,6 @@ int main()
     printf(1, "test ps(6)\n");
     ps(6);
     // --- test ps end ---
-
+    // what up
     exit();
 }
